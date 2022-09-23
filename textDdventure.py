@@ -56,6 +56,12 @@ def startGame(x):
     else:
         return "Error"
 
+def introSequence():
+    for l in "\n\n":
+        sys.stdout.write(l)
+        sys.stdout.flush()
+        sleep(random.random()*10.0/typing_speed)
+
 def firstQuestion():
     print("")
 
@@ -65,7 +71,7 @@ clear()
 
 print("\n \n \n             WARNING: Game is case sensitive, all answers should be in Y/N format.")
 
-sleep(5)
+sleep(2.5)
 
 clear()
 
@@ -73,7 +79,6 @@ print(startGame(input("Do you want to start the game? \n")))
 
 clear()
 
-for l in "number 1 victory royale yeah fornite we about to get down":
-        sys.stdout.write(l)
-        sys.stdout.flush()
-        sleep(random.random()*10.0/typing_speed)
+sleep(1.5)
+
+introSequence()
