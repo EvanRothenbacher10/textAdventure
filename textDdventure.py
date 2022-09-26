@@ -8,7 +8,6 @@ import sys
 from sys import *
 import random
 
-
 # Variables
 
 typing_speed = 50
@@ -20,7 +19,7 @@ def clear():
 
 def loadingScrn():
         clear()
-        print("          Loading \n        [.]")
+        print("          \033[0;32;40mLoading \n        [.]")
         sleep(.5)
         clear()
         print("          Loading \n        [..]")
@@ -56,24 +55,51 @@ def startGame(x):
     else:
         return "Error"
 
-def firstQuestion():
-    print("")
+def conv1():
+    print ("You put the bread in the toaster...")
+    print(".")
+    sleep(0.4)
+    clear()
+    print ("You put the bread in the toaster...")
+    print("..")
+    sleep(0.4)
+    clear()
+    print ("You put the bread in the toaster...")
+    print("...")
+    sleep(0.4)
+    clear()
+    return "Suddenly the toast jumps out and attacks you!"
+
+def conv2():
+    return "wip"
+
+def firstQuestion(x):
+    if x == "Y":
+        return conv1()
+    else:
+        return conv2()
 
 # Calls
 
 clear()
 
-print("\n \n \n             WARNING: Game is case sensitive, all answers should be in Y/N format.")
+print("\033[0;31;40m\n \n \n             WARNING: Game is case sensitive, all answers should be in Y/N format.")
 
 sleep(5)
 
 clear()
 
-print(startGame(input("Do you want to start the game? \n")))
+print(startGame(input("\033[0;37;40mDo you want to start the game? \n")))
 
 clear()
 
-for l in "number 1 victory royale yeah fornite we about to get down":
+print("\033[0;34;40m ")
+
+for l in "You wake up in the morning feeling hungry":
         sys.stdout.write(l)
         sys.stdout.flush()
         sleep(random.random()*10.0/typing_speed)
+
+sleep(0.2)
+
+print(firstQuestion(input("\n\n\033[0;37;40mMake Breakfast? \n  ")))
