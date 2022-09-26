@@ -93,4 +93,4 @@ print(firstQuestion(input(" Make toast?\n")))
 
 sleep(0.7)
 
-print(firstBattle(input("Do you fight the toast? \n")))
+print(firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n")))
