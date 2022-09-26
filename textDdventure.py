@@ -49,13 +49,37 @@ def startGame(x):
 
 def firstQuestion(x):
     if x == "Y":
-        return "preinted2"
+        clear()
+        print("You put bread in the toaster")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster.")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster..")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster...")
+        sleep(1.5)
+        clear()
+        return "Suddenly toast leaps out of the toaster and starts attacking you!"
+
+def firstBattle(x):
+    if x == "Fight":
+        clear()
+        print("You decide to fight the piece of Toast")
+    elif x == "Run":
+        clear()
+        print("You attempt to run")
+    else:
+        clear()
+        firstBattle()
 
 # Calls
 
 clear()
 
-print("\033[0;31m\n \n        WARNING: Game is case sensitive, all answers should be in Y/N format.")
+print("\033[0;31m\n \n        WARNING: Game is case sensitive, all answers should match given prompt.")
 
 sleep(5)
 
@@ -65,4 +89,8 @@ print(startGame(input("\033[0;37mDo you want to start the game? \n")))
 
 print("You wake up feeling hungry...", end=".")
 
-print(firstQuestion(input(" Make toast?")))
+print(firstQuestion(input(" Make toast?\n")))
+
+sleep(0.7)
+
+print(firstBattle(input("Do you fight the toast? \n")))
