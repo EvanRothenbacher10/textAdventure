@@ -3,14 +3,15 @@ from os import *
 import time
 from time import *
 import threading
-from threading import Thread
+from threading import *
 import sys
 from sys import *
 import random
+from random import *
 
 # Variables
 
-typing_speed = 50
+typingSpeed = 50
 
 # Functions
 
@@ -19,35 +20,29 @@ def clear():
 
 def loadingScrn():
         clear()
-        print("          \033[0;32;40mLoading \n        [.]")
+        print("\n         \033[0;32mLoading \n        [.]")
         sleep(.5)
         clear()
-        print("          Loading \n        [..]")
+        print("\n         Loading \n        [..]")
         sleep(.5)
         clear()
-        print("          Loading \n        [...]")
+        print("\n         Loading \n        [...]")
         sleep(.5)
         clear()
-        print("          Loading \n        [....]")
+        print("\n         Loading \n        [....]")
         sleep(.5)
         clear()
-        print("          Loading \n        [.....]")
+        print("\n         Loading \n        [.....]")
         sleep(.5)
         clear()
-        print("          Loading \n        [......]")
+        print("\n         Loading \n        [......]")
         sleep(.5)
         clear()
-        print("          Loading \n        [.......]")
+        print("\n         Loading \n        [.......]")
         sleep(.5)
         clear()
-        print("          Loading \n        [........]")
-        sleep(.5)
-        clear()
-        print("          Loading \n        [.........]")
-        sleep(.5)
-        clear()
-        print("     Loading Complete \n        [.........]")
-        sleep(1)
+        print("\n     Loading Complete \n        [.......]\033[0;37m")
+        sleep(0.5)
         clear()
         return " "
 
@@ -55,50 +50,58 @@ def startGame(x):
     if x == "Y":
         return loadingScrn()
     else:
-        return "Error"
-
-def conv1():
-    print ("You put the bread in the toaster.")
-    sleep(0.7)
-    clear()
-    print ("You put the bread in the toaster..")
-    sleep(0.7)
-    clear()
-    print ("You put the bread in the toaster...")
-    sleep(1)
-    clear()
-    return "Suddenly the toast jumps out and attacks you!"
-
-def conv2():
-    return "wip"
-
+        breakpointhook()
+    
 def firstQuestion(x):
     if x == "Y":
-        return conv1()
+        clear()
+        print("You put bread in the toaster")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster.")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster..")
+        sleep(.7)
+        clear()
+        print("You put bread in the toaster...")
+        sleep(1.5)
+        clear()
+        return "Suddenly toast leaps out of the toaster and starts attacking you!"
+
+def firstBattle(x):
+    if x == "FIGHT":
+        clear()
+        print("You decide to fight the piece of Toast")
+    elif x == "RUN":
+        clear()
+        print("You attempt to run")
     else:
-        return conv2()
+        clear()
+        firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
 
 # Calls
 
 clear()
 
-print("\033[0;31;40m\n \n \n             WARNING: Game is case sensitive, all answers should be in Y/N format.")
+print("\033[0;31m\n \n        WARNING: Game is case sensitive, all answers should match given prompt.")
 
-sleep(5)
-
-clear()
-
-print(startGame(input("\033[0;37;40mDo you want to start the game? \n")))
+sleep(2.5)
 
 clear()
 
-print("\033[0;34;40m ")
+print(startGame(input(" \033[0;37mDo you want to start the game?\n   ")))
 
-for l in "You wake up in the morning feeling hungry":
+clear()
+
+for l in "You wake up in the morning feeling hungry.":
         sys.stdout.write(l)
         sys.stdout.flush()
-        sleep(random.random()*10.0/typing_speed)
+        sleep(randint(1, 5)/typingSpeed)
 
-sleep(0.2)
+print(firstQuestion(input("\n Make toast?\n ")))
 
-print(firstQuestion(input("\n\n\033[0;37;40mMake Breakfast? \n  ")))
+sleep(0.7)
+
+print(firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n")))
+
