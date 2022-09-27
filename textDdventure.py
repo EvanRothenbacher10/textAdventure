@@ -47,6 +47,8 @@ def loadingScrn():
         sleep(.5)
         clear()
         print("     Loading Complete \n        [.........]")
+        sleep(1)
+        clear()
         return " "
 
 def startGame(x):
@@ -56,17 +58,14 @@ def startGame(x):
         return "Error"
 
 def conv1():
-    print ("You put the bread in the toaster...")
-    print(".")
-    sleep(0.4)
+    print ("You put the bread in the toaster.")
+    sleep(0.7)
+    clear()
+    print ("You put the bread in the toaster..")
+    sleep(0.7)
     clear()
     print ("You put the bread in the toaster...")
-    print("..")
-    sleep(0.4)
-    clear()
-    print ("You put the bread in the toaster...")
-    print("...")
-    sleep(0.4)
+    sleep(1)
     clear()
     return "Suddenly the toast jumps out and attacks you!"
 
