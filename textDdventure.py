@@ -4,14 +4,9 @@ import time
 from time import *
 import threading
 from threading import *
-import sys
-from sys import *
-import random
-from random import *
 
 # Variables
 
-typingSpeed = 50
 
 # Functions
 
@@ -46,16 +41,16 @@ def loadingScrn():
         clear()
         return " "
 
-def startGame(x):
-    if x == "Y":
+def startGame(ans1):
+    if ans1 == "y" or "yes" or "Yes" or "Y" or "YES":
         return loadingScrn()
     else:
-        breakpointhook()
-    
+        raise ValueError
+
 def firstQuestion(x):
     if x == "Y":
         clear()
-        print("You put bread in the toaster")
+        print("\033[0;36mYou put bread in the toaster")
         sleep(.7)
         clear()
         print("You put bread in the toaster.")
@@ -70,15 +65,17 @@ def firstQuestion(x):
         return "Suddenly toast leaps out of the toaster and starts attacking you!"
 
 def firstBattle(x):
-    if x == "FIGHT":
-        clear()
-        print("You decide to fight the piece of Toast")
-    elif x == "RUN":
-        clear()
-        print("You attempt to run")
-    else:
-        clear()
-        firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
+        if x == "FIGHT" or "Fight" or "fight":
+            clear()
+            print("You decide to fight the piece of Toast")
+        elif x == "RUN" or "run" or "Run":
+            clear()
+            print("You attempt to run")
+        else:
+            raise ValueError
+        
+        
+        
 
 # Calls
 
@@ -86,22 +83,28 @@ clear()
 
 print("\033[0;31m\n \n        WARNING: Game is case sensitive, all answers should match given prompt.")
 
-sleep(2.5)
+sleep(5)
 
 clear()
 
-print(startGame(input(" \033[0;37mDo you want to start the game?\n   ")))
+try:
+    print(startGame(input("\033[0;37mDo you want to start the game? \n")))
+except:
+    clear()
+    print(startGame(input("\033[0;37mDo you want to start the game? \n")))
 
-clear()
+print("You wake up feeling hungry...", end=".")
 
-for l in "You wake up in the morning feeling hungry.":
-        sys.stdout.write(l)
-        sys.stdout.flush()
-        sleep(randint(1, 5)/typingSpeed)
-
-print(firstQuestion(input("\n Make toast?\n ")))
+try:
+    print(firstQuestion(input(" Make toast?\n")))
+except:
+    clear()
+    print(firstQuestion(input(" Make toast?\n")))
 
 sleep(0.7)
 
-print(firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n")))
-
+try:
+    firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
+except:
+    clear()
+    firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
