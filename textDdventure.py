@@ -4,9 +4,13 @@ import time
 from time import *
 import threading
 from threading import *
+import random
+from random import *
 
 # Variables
 
+pHP = 100
+toastHP = 50
 
 # Functions
 
@@ -48,7 +52,7 @@ def startGame(ans1):
         raise ValueError
 
 def firstQuestion(x):
-    if x == "Y":
+    if x == "Y" or "y" or "yes" or "YES" or "Yes":
         clear()
         print("\033[0;36mYou put bread in the toaster")
         sleep(.7)
@@ -63,19 +67,33 @@ def firstQuestion(x):
         sleep(1.5)
         clear()
         return "Suddenly toast leaps out of the toaster and starts attacking you!"
+    else:
+        clear()
+        raise ValueError
+
+def question2():
+    pass
+        
+def fightSeq():
+    print("\n\n       🍞              ヽ(°□°ヽ)\n   [▇▇▇▇▇▇▇▇]          [▇▇▇▇▇▇▇▇]\n\n")
+
 
 def firstBattle(x):
         if x == "FIGHT" or "Fight" or "fight":
             clear()
-            print("You decide to fight the piece of Toast")
+            print("You decide to fight the piece of Toast!")
         elif x == "RUN" or "run" or "Run":
             clear()
-            print("You attempt to run")
+            chance = Random.random(0, 100)
+            if chance < 50:
+                print("You Fail to Escape!")
+                return fightSeq()
+            else:
+                print("You Successfully Escape!")
+                return question2()
+
         else:
             raise ValueError
-        
-        
-        
 
 # Calls
 
@@ -108,3 +126,5 @@ try:
 except:
     clear()
     firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
+
+fightSeq()
