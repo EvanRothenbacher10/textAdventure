@@ -65,7 +65,7 @@ def firstQuestion(x):
         print("You put bread in the toaster...")
         sleep(1.5)
         clear()
-        return "Suddenly toast leaps out of the toaster and starts attacking you!"
+        return "Suddenly toast leaps out of the toaster and starts attacking you!!"
     else:
         clear()
         raise ValueError
