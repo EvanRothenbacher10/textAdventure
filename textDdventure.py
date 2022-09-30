@@ -6,7 +6,6 @@ import threading
 from threading import *
 import random
 from random import *
-
 # Variables
 
 pHP = 100
@@ -46,7 +45,7 @@ def loadingScrn():
         return " "
 
 def startGame(ans1):
-    if ans1 == "y" or "yes" or "Yes" or "Y" or "YES":
+    if ans1.lower == 'yes':
         return loadingScrn()
     else:
         raise ValueError
