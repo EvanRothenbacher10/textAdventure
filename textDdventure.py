@@ -45,7 +45,11 @@ def loadingScrn():
         return " "
 
 def startGame(ans1):
+<<<<<<< HEAD
     if ans1.lower == 'yes':
+=======
+    if ans1 == "y" or "yes" or "Yes" or "Y" or "YES":
+>>>>>>> d66f0f96f856567d7800da99442b9e42bd7b705a
         return loadingScrn()
     else:
         raise ValueError
@@ -65,6 +69,7 @@ def firstQuestion(x):
         print("You put bread in the toaster...")
         sleep(1.5)
         clear()
+<<<<<<< HEAD
         return "Suddenly toast leaps out of the toaster and starts attacking you!!"
     else:
         clear()
@@ -76,10 +81,14 @@ def question2():
 def fightSeq():
     print("\n\n       🍞              ヽ(°□°ヽ)\n   [▇▇▇▇▇▇▇▇]          [▇▇▇▇▇▇▇▇]\n\n")
 
+=======
+        return "Suddenly toast leaps out of the toaster and starts attacking you!"
+>>>>>>> d66f0f96f856567d7800da99442b9e42bd7b705a
 
 def firstBattle(x):
         if x == "FIGHT" or "Fight" or "fight":
             clear()
+<<<<<<< HEAD
             print("You decide to fight the piece of Toast!")
         elif x == "RUN" or "run" or "Run":
             clear()
@@ -93,6 +102,17 @@ def firstBattle(x):
 
         else:
             raise ValueError
+=======
+            print("You decide to fight the piece of Toast")
+        elif x == "RUN" or "run" or "Run":
+            clear()
+            print("You attempt to run")
+        else:
+            raise ValueError
+        
+        
+        
+>>>>>>> d66f0f96f856567d7800da99442b9e42bd7b705a
 
 # Calls
 
@@ -124,6 +144,10 @@ try:
     firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
 except:
     clear()
+<<<<<<< HEAD
     firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
 
 fightSeq()
+=======
+    firstBattle(input("Do you fight the toast? |FIGHT| |RUN| \n"))
+>>>>>>> d66f0f96f856567d7800da99442b9e42bd7b705a
