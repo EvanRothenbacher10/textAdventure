@@ -8,9 +8,6 @@ import random
 from random import *
 # Variables
 
-pHP = 100
-toastHP = 50
-
 # Functions
 
 def clear():
@@ -45,13 +42,13 @@ def loadingScrn():
         return " "
 
 def startGame(ans1):
-    if ans1.lower == 'yes':
-        return loadingScrn()
+    if ans1 == "Y" or ans1 == "y" or ans1 == "Yes" or ans1 == "YES" or ans1 == "yes":
+        return loadingScrn() 
     else:
-        raise ValueError
+        raise ValueError("Answer does not work")
 
 def firstQuestion(x):
-    if x == "Y" or "y" or "yes" or "YES" or "Yes":
+    if x == ("Y", "y", "yes", "YES", "Yes"):
         clear()
         print("\033[0;36mYou put bread in the toaster")
         sleep(.7)
@@ -78,10 +75,10 @@ def fightSeq():
 
 
 def firstBattle(x):
-        if x == "FIGHT" or "Fight" or "fight":
+        if x == ("Fight", "FIGHT", "fight"):
             clear()
             print("You decide to fight the piece of Toast!")
-        elif x == "RUN" or "run" or "Run":
+        elif x == ("RUN", "run", "Run"):
             clear()
             chance = Random.random(0, 100)
             if chance < 50:
@@ -95,12 +92,6 @@ def firstBattle(x):
             raise ValueError
 
 # Calls
-
-clear()
-
-print("\033[0;31m\n \n        WARNING: Game is case sensitive, all answers should match given prompt.")
-
-sleep(5)
 
 clear()
 
